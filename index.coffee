@@ -39,8 +39,6 @@ rmUsed = (target, used) ->
   re = _.map target, (val) ->
     if val and (not ((used.indexOf val) > -1))
       return val
-    else
-      return ''
   return re.join ''
 
 # Pick a possible letter.
@@ -57,7 +55,7 @@ pickALetter = (word, guessedLetters) ->
     else
       checker word
       .then (possibleWords) ->
-        hints = word.replace '*', ''
+        hints = _.replace word, /\*/g, ''
         s = _.toUpper _.reduce possibleWords, (sum, val) ->
           sum += val
           re = rmUsed (_.toUpper sum), (_.toUpper (guessedLetters + hints))
