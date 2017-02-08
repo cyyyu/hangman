@@ -60,7 +60,7 @@ pickALetter = (word, guessedLetters) ->
         hints = word.replace '*', ''
         s = _.toUpper _.reduce possibleWords, (sum, val) ->
           sum += val
-          re = rmUsed (_.toUpper sum), (_.toUpper guessedLetters)
+          re = rmUsed (_.toUpper sum), (_.toUpper (guessedLetters + hints))
           return re
         print 'Possible letters: '.cyan, s
         resolve pickRandomLetter s
