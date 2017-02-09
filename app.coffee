@@ -3,5 +3,5 @@
 Player = require './index'
 
 # Start (id, targetScore)
-player = new Player 'y33793@gmail.com', 50
+player = new Player 'id', 50
 player.StartGame()
